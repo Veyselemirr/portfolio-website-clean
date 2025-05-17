@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Scrollbar özelleştirme */
+.scrollbar::-webkit-scrollbar {
+    width: 8px;
+}
+
+.scrollbar::-webkit-scrollbar-track {
+    background: #0f172a;
+    /* koyu gri arka plan (uyumlu) */
+    border-radius: 8px;
+}
+
+.scrollbar::-webkit-scrollbar-thumb {
+    background-color: #10b981;
+    /* Tailwind'de emerald-500 */
+    border-radius: 8px;
+    border: 2px solid #0f172a;
+    /* track ile birleşik gibi görünmesi için */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.animate-fade-in {
+    animation: fadeIn 1.4s ease-in-out;
+}
