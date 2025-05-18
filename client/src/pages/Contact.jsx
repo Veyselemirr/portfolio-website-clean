@@ -32,9 +32,17 @@ const ContactPage = () => {
                         className="md:col-span-7 bg-[#1a1f2e] w-full px-12 py-10 rounded-2xl shadow-xl border-l-4 border-emerald-500"
                     >
                         {/* Email */}
-                        <div className="flex items-center gap-5 mb-5">
-                            <FaEnvelope size={32} className="text-emerald-400" />
-                            <p className="text-2xl font-medium text-white break-all">{contact.email}</p>
+                        <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-5 mb-5">
+                            <div className="flex items-center gap-3">
+                                <FaEnvelope size={28} className="text-emerald-400" />
+                                <span className="text-base sm:text-lg font-semibold text-white">Email:</span>
+                            </div>
+                            <a
+                                href={`mailto:${contact.email}`}
+                                className="text-base sm:text-lg text-emerald-300 hover:underline break-all"
+                            >
+                                {contact.email}
+                            </a>
                         </div>
 
                         {/* Sosyal Medyalar */}
@@ -42,14 +50,19 @@ const ContactPage = () => {
                             {contact.socialLinks.map((link, index) => {
                                 const Icon = iconMap[link.iconKey];
                                 return (
-                                    <div key={index} className="flex items-center gap-5">
-                                        {Icon && <Icon size={30} className="text-emerald-400" />}
-                                        <span className="text-xl font-semibold text-white">{link.name}:</span>
+                                    <div
+                                        key={index}
+                                        className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-5"
+                                    >
+                                        <div className="flex items-center gap-3">
+                                            {Icon && <Icon size={28} className="text-emerald-400" />}
+                                            <span className="text-base sm:text-lg font-semibold text-white">{link.name}:</span>
+                                        </div>
                                         <a
                                             href={link.url}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className="text-xl text-emerald-300 hover:underline break-all"
+                                            className="text-base sm:text-lg text-emerald-300 hover:underline break-all"
                                         >
                                             {link.url}
                                         </a>
@@ -68,10 +81,7 @@ const ContactPage = () => {
                         className="md:col-span-5 flex justify-center items-center"
                     >
                         <div className="relative w-80 h-80">
-                            {/* Dönen dış çerçeve */}
                             <div className="absolute inset-0 rounded-full border-[6px] border-dashed border-emerald-400 animate-spin-slow"></div>
-
-                            {/* Sabit iç fotoğraf */}
                             <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-[#1a1f2e]">
                                 <img
                                     src={`http://localhost:5000/uploads/${contact.profileImage}`}

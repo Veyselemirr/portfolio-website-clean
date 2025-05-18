@@ -25,9 +25,6 @@ router.get('/', (req, res) => {
     res.json({ url: '/uploads/cv.pdf' });
 });
 
-router.post('/upload', upload.single('cv'), (req, res) => {
-    console.log("✅ CV dosyası geldi:", req.file); // log kontrolü
-    res.json({ message: 'CV yüklendi', file: '/uploads/cv.pdf' });
-});
+
 
 module.exports = router;
