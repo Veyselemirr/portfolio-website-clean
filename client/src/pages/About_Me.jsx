@@ -26,29 +26,27 @@ const AboutMe = () => {
     const [education, setEducation] = useState(null);
 
     useEffect(() => {
-        axios.get("http://localhost:5000/api/education")
+        axios.get(`${process.env.REACT_APP_API_URL}/api/education`)
             .then(res => {
                 if (res.data.length > 0) {
-                    setEducation(res.data[0]); // sadece tek kayıt varsa
+                    setEducation(res.data[0]);
                 }
             })
             .catch(err => console.error("Education verisi alınamadı:", err));
     }, []);
 
-
-
     useEffect(() => {
-        axios.get("http://localhost:5000/api/about")
+        axios.get(`${process.env.REACT_APP_API_URL}/api/about`)
             .then(res => {
                 if (res.data.length > 0) {
                     setAbout(res.data[0]);
                 }
             })
             .catch(err => console.error("Hakkımda verisi alınamadı:", err));
-
     }, []);
+
     useEffect(() => {
-        axios.get("http://localhost:5000/api/skills")
+        axios.get(`${process.env.REACT_APP_API_URL}/api/skills`)
             .then(res => {
                 setSkills(res.data);
             })

@@ -10,7 +10,7 @@ const HeroSection = () => {
 
     useEffect(() => {
         // Hero verisi
-        axios.get('http://localhost:5000/api/hero')
+        axios.get('${process.env.REACT_APP_API_URL}/api/hero')
             .then(res => {
                 if (res.data.length > 0) {
                     setHero(res.data[0]);
