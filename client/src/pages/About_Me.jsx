@@ -72,31 +72,34 @@ const AboutMe = () => {
                     </p>
 
                     {skills.length > 0 ? (
-                        <div className="grid grid-cols-3 gap-6 h-[360px] overflow-y-auto pr-2 scrollbar">
-                            {skills.map((skill, idx) => {
-                                const IconComponent = iconMap[skill.icon];
+                        <div className="overflow-x-hidden">
+                            <div className="grid grid-cols-3 sm:grid-cols-3 gap-4 h-[360px] overflow-y-auto pr-2 scrollbar">
+                                {skills.map((skill, idx) => {
+                                    const IconComponent = iconMap[skill.icon];
 
-                                return (
-                                    <div
-                                        key={idx}
-                                        className="group relative p-12 rounded-lg bg-[#193540]/80 hover:bg-emerald-600 transition-all duration-300 shadow-md flex flex-col items-center justify-center text-emerald-300 hover:text-white"
-                                    >
-                                        {IconComponent ? (
-                                            <IconComponent className="text-7xl" />
-                                        ) : (
-                                            <span className="text-sm text-red-400">?</span>
-                                        )}
+                                    return (
+                                        <div
+                                            key={idx}
+                                            className="group relative p-8 rounded-lg bg-[#193540]/80 hover:bg-emerald-600 transition-all duration-300 shadow-md flex flex-col items-center justify-center text-emerald-300 hover:text-white"
+                                        >
+                                            {IconComponent ? (
+                                                <IconComponent className="text-6xl" />
+                                            ) : (
+                                                <span className="text-sm text-red-400">?</span>
+                                            )}
 
-                                        <div className="opacity-0 group-hover:opacity-100 text-xs  bg-black/60 text-white px-2 py-1 rounded transition text-center absolute bottom-[-10px] left-1/2 transform -translate-x-1/2">
-                                            {skill.name}
+                                            <div className="opacity-0 group-hover:opacity-100 text-xs  bg-black/60 text-white px-2 py-1 rounded transition text-center absolute bottom-[-10px] left-1/2 transform -translate-x-1/2">
+                                                {skill.name}
+                                            </div>
                                         </div>
-                                    </div>
-                                );
-                            })}
+                                    );
+                                })}
+                            </div>
                         </div>
                     ) : (
                         <p className="text-gray-400 text-sm">Henüz skill eklenmemiş.</p>
                     )}
+
                 </div>
             );
         } else if (activeTab === "education") {
