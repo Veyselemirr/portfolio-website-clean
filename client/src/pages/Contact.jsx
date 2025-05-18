@@ -8,7 +8,7 @@ const ContactPage = () => {
     const [contact, setContact] = useState(null);
 
     useEffect(() => {
-        axios.get('http://localhost:5000/api/contact')
+        axios.get(`${process.env.REACT_APP_API_URL}/api/contact`)
             .then(res => setContact(res.data))
             .catch(err => console.error("API hatası:", err));
     }, []);

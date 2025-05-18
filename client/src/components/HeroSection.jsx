@@ -10,7 +10,7 @@ const HeroSection = () => {
 
     useEffect(() => {
         // Hero verisi
-        axios.get('${process.env.REACT_APP_API_URL}/api/hero')
+        axios.get(`${process.env.REACT_APP_API_URL}/api/hero`)
             .then(res => {
                 if (res.data.length > 0) {
                     setHero(res.data[0]);
@@ -19,11 +19,10 @@ const HeroSection = () => {
             .catch(err => console.error("API hatası:", err));
 
         // CV linki
-        axios.get('http://localhost:5000/api/cv')
-            .then(res => setCvUrl(`http://localhost:5000${res.data.url}`))
+        axios.get(`${process.env.REACT_APP_API_URL}/api/cv`)
+            .then(res => setCvUrl(`${process.env.REACT_APP_API_URL}${res.data.url}`))
             .catch(err => console.error("CV linki alınamadı:", err));
     }, []);
-
     if (!hero) return <p className="text-center mt-10 text-gray-500">Yükleniyor...</p>;
 
     return (

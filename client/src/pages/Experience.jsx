@@ -6,7 +6,7 @@ const Experience = () => {
     const [experiences, setExperiences] = useState([]);
 
     useEffect(() => {
-        axios.get('http://localhost:5000/api/experience')
+        axios.get(`${process.env.REACT_APP_API_URL}/api/experience`)
             .then(res => setExperiences(res.data))
             .catch(err => console.error("API Hatası:", err));
     }, []);
