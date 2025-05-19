@@ -53,7 +53,6 @@ const HeroSection = () => {
                                 <FileText className="w-6 h-6 flex-shrink-0" />
                                 <span className="ml-3 text-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
                                     My Resume
-
                                 </span>
                             </a>
                         )}

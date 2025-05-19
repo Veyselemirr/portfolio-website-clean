@@ -49,7 +49,7 @@ const AboutMe = () => {
                 <div className="space-y-6">
                     <h3 className="text-4xl font-extrabold text-emerald-400">My Skills</h3>
                     <p className="text-lg text-gray-400 max-w-xl">
-                        Aşağıda, projelerimde aktif olarak kullandığım teknolojiler ve araçlar yer almaktadır.
+                        Below are the technologies and tools I actively use in my projects.
                     </p>
                     {skills.length > 0 ? (
                         <div className="overflow-x-hidden">
@@ -92,10 +92,10 @@ const AboutMe = () => {
     };
 
     return (
-        <section className="min-h-screen bg-gradient-to-b from-[#111827] to-[#0b3d2e] text-white py-28 pt-40" id="about">
+        <section className="min-h-screen bg-gradient-to-b from-[#111827] to-[#0b3d2e] text-white py-28 pt-35" id="about">
             {/* Başlık */}
             <div className="max-w-6xl mx-auto px-4 ">
-                <h2 className="text-6xl font-bold mb-10 text-center text-emerald-400">Resume</h2>
+                <h2 className="text-6xl font-bold mb-10 mt-7 text-center text-emerald-400">Resume</h2>
             </div>
 
             <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-10 px-4">

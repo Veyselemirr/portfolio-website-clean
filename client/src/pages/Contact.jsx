@@ -28,9 +28,9 @@ const ContactPage = () => {
     }
 
     return (
-        <section className="min-h-screen bg-gradient-to-b from-[#111827] to-[#0b3d2e] text-white pt-36 pb-24 px-8">
+        <section className="min-h-screen bg-gradient-to-b from-[#111827] to-[#0b3d2e] text-white pt-32 pb-24 px-8">
             <div className="max-w-6xl mx-auto">
-                <h2 className="text-6xl font-bold mb-20 text-center text-emerald-400">Contact</h2>
+                <h2 className="text-6xl font-bold mb-10 text-center text-emerald-400">Contact</h2>
 
                 <div className="grid md:grid-cols-12 gap-16 items-center">
                     {/* Sol Kısım: Bilgiler Kartı */}
