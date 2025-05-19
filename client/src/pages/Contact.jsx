@@ -9,9 +9,19 @@ const ContactPage = () => {
 
     useEffect(() => {
         axios.get(`${process.env.REACT_APP_API_URL}/api/contact`)
-            .then(res => setContact(res.data))
+            .then(res => {
+                const data = res.data;
+
+                // Sadece dosya adı geldiyse tam URL haline getir
+                if (!data.profileImage.startsWith('http')) {
+                    data.profileImage = `${process.env.REACT_APP_API_URL}/uploads/${data.profileImage}`;
+                }
+
+                setContact(data);
+            })
             .catch(err => console.error("API hatası:", err));
     }, []);
+
 
     if (!contact) {
         return <p className="text-white text-center mt-10 text-xl">Yükleniyor...</p>;
@@ -80,14 +90,15 @@ const ContactPage = () => {
                         viewport={{ once: true }}
                         className="md:col-span-5 flex justify-center items-center"
                     >
-                        <div className="relative w-80 h-80">
-                            <div className="absolute inset-0 rounded-full border-[6px] border-dashed border-emerald-400 animate-spin-slow"></div>
+                        <div className="relative w-64 h-64 sm:w-80 sm:h-80">
                             <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-[#1a1f2e]">
                                 <img
-                                    src={`http://localhost:5000/uploads/${contact.profileImage}`}
+                                    src={contact.profileImage}
                                     alt="Profil"
                                     className="w-full h-full object-cover"
                                 />
+
+
                             </div>
                         </div>
                     </motion.div>
