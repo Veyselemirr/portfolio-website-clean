@@ -2,23 +2,6 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { iconMap } from "../utils/iconMap";
 
-
-/*const skillsList = [
-    { icon: <SiDotnet />, name: "C# / ASP.NET" },
-    { icon: <FaHtml5 />, name: "HTML5" },
-    { icon: <FaCss3Alt />, name: "CSS3" },
-    { icon: <FaDatabase />, name: "SQL" },
-    { icon: <FaCogs />, name: "Yazılım Mimarileri" },
-    { icon: <BiCodeBlock />, name: "Web Servisleri" },
-    { icon: <SiJavascript />, name: "JavaScript" },
-    { icon: <FaNodeJs />, name: "Node.js" },
-    { icon: <SiNextdotjs />, name: "Next.js" },
-    { icon: <TbDatabaseExport />, name: "Entity Framework" },
-    { icon: <SiMongodb />, name: "MongoDB" },
-    { icon: <FaGithub />, name: "Git & GitHub" },
-    { icon: <FaReact />, name: "React" },
-];*/
-
 const AboutMe = () => {
     const [about, setAbout] = useState(null);
     const [activeTab, setActiveTab] = useState("about");
@@ -53,8 +36,6 @@ const AboutMe = () => {
             .catch(err => console.error("Skill verisi alınamadı:", err));
     }, []);
 
-
-
     const renderContent = () => {
         if (activeTab === "about") {
             return (
@@ -70,13 +51,11 @@ const AboutMe = () => {
                     <p className="text-lg text-gray-400 max-w-xl">
                         Aşağıda, projelerimde aktif olarak kullandığım teknolojiler ve araçlar yer almaktadır.
                     </p>
-
                     {skills.length > 0 ? (
                         <div className="overflow-x-hidden">
                             <div className="grid grid-cols-3 sm:grid-cols-3 gap-4 h-[360px] overflow-y-auto pr-2 scrollbar">
                                 {skills.map((skill, idx) => {
                                     const IconComponent = iconMap[skill.icon];
-
                                     return (
                                         <div
                                             key={idx}
@@ -87,8 +66,7 @@ const AboutMe = () => {
                                             ) : (
                                                 <span className="text-sm text-red-400">?</span>
                                             )}
-
-                                            <div className="opacity-0 group-hover:opacity-100 text-xs  bg-black/60 text-white px-2 py-1 rounded transition text-center absolute bottom-[-10px] left-1/2 transform -translate-x-1/2">
+                                            <div className="opacity-0 group-hover:opacity-100 text-xs bg-black/60 text-white px-2 py-1 rounded transition text-center absolute bottom-[-10px] left-1/2 transform -translate-x-1/2">
                                                 {skill.name}
                                             </div>
                                         </div>
@@ -99,7 +77,6 @@ const AboutMe = () => {
                     ) : (
                         <p className="text-gray-400 text-sm">Henüz skill eklenmemiş.</p>
                     )}
-
                 </div>
             );
         } else if (activeTab === "education") {
@@ -116,8 +93,12 @@ const AboutMe = () => {
 
     return (
         <section className="min-h-screen bg-gradient-to-b from-[#111827] to-[#0b3d2e] text-white py-28 pt-40" id="about">
-            <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-10">
+            {/* Başlık */}
+            <div className="max-w-6xl mx-auto px-4 ">
+                <h2 className="text-6xl font-bold mb-10 text-center text-emerald-400">Resume</h2>
+            </div>
 
+            <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-10 px-4">
                 {/* Sol Menü */}
                 <div className="flex flex-col space-y-6">
                     {["about", "skills", "education"].map((tab) => (
@@ -142,7 +123,6 @@ const AboutMe = () => {
                         {renderContent()}
                     </div>
                 </div>
-
             </div>
         </section>
     );
