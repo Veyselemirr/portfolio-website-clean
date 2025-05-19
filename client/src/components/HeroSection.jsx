@@ -52,7 +52,8 @@ const HeroSection = () => {
                                 className="group flex items-center bg-emerald-500 text-white rounded-full shadow-lg overflow-hidden transition-all duration-300 pl-3 pr-3 py-3 w-[48px] hover:w-56">
                                 <FileText className="w-6 h-6 flex-shrink-0" />
                                 <span className="ml-3 text-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
-                                    CV’mi indirebilirsiniz
+                                    My Resume
+
                                 </span>
                             </a>
                         )}
